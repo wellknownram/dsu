@@ -12,7 +12,19 @@ public class Dsu {
     }
 
     // missing union function
-
+    public boolean union(int x, int y) {
+        int xRoot = find(x);
+        int yRoot = find(y);
+        if (xRoot == yRoot) { return false; }
+        if (sizes[xRoot] < sizes[yRoot]) {
+            parents[xRoot] = yRoot;
+            sizes[yRoot] += sizes[xRoot];
+        } else {
+            parents[yRoot] = xRoot;
+            sizes[xRoot] += sizes[yRoot];
+        }
+        return true;
+    }
     public int find(int x) {
         return parents[x] == -1 ? x : (parents[x] = find(parents[x]));
     }
