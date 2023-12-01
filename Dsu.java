@@ -8,7 +8,7 @@ public class Dsu {
         sizes = new int[size];
         parents = new int[size];
         Arrays.fill(sizes, 1);
-        Arrays.fill(parents, 1); // logical mistake made on purpose for the hot fix (should be -1)
+        Arrays.fill(parents, -1); // logical mistake made on purpose for the hot fix (should be -1)
     }
 
     // missing union function
